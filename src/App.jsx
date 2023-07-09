@@ -1,71 +1,49 @@
 import 'tailwindcss/tailwind.css';
 import { jsx, css } from '@emotion/react';
+import styled from '@emotion/styled';
 import './App.css';
 
 import logo from './assets/images/logo_100x100.png';
 
 function App() {
-  const containerStyles = css`
-    background-color: #e2e8f0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `;
 
-  const cardStyles = css`
-    max-width: md;
-    padding: 6;
-    background-color: white;
-    border-radius: lg;
-    box-shadow: lg;
-    display: flex;
-    align-items: center;
-  `;
-
-  const logoStyles = css`
-    width: 16px;
-    height: 16px;
-    margin-right: 4;
-  `;
-
-  const titleStyles = css`
+  const Title = styled.h1`
     font-size: 2xl;
     font-weight: bold;
-    margin-bottom: 4;
+    margin-bottom: 4px;
   `;
 
-  const descriptionStyles = css`
+  const Description = styled.p`
     color: #4a5568;
   `;
 
-  const buttonStyles = css`
-    margin-top: 4;
-    padding: 2 4;
+  const Button = styled.button`
+    margin-top: 4px;
+    padding: 2px 4px;
     background-color: #3b82f6;
     color: white;
-    border-radius: rounded;
+    border-radius: 0.25rem;
     &:hover {
       background-color: #2563eb;
     }
   `;
 
   return (
-    <div css={containerStyles}>
-      <div css={cardStyles}>
-        <img src={logo} alt="Logo" css={logoStyles} />
+    <div className="bg-gray-200 min-h-screen flex items-center justify-center">
+      <div className="max-w-md p-6 bg-white rounded-lg shadow-lg flex items-center">
+        <img src={logo} alt="Logo" className="w-16 h-16 mr-4" />
         <div>
-          <h1 css={titleStyles}>
-            <span css={{ display: 'inline-block', verticalAlign: 'middle' }}>
+          <Title>
+            <span className={{ display: 'inline-block', verticalAlign: 'middle' }}>
               Welcome to Agile Biscuits App
             </span>
-          </h1>
-          <p css={descriptionStyles}>
+          </Title>
+          <Description>
             This is a sample application using Tailwind CSS.
-          </p>
-          <button css={buttonStyles}>
+          </Description>
+          <Button>
             Click Me
-          </button>
+            </Button>
         </div>
       </div>
     </div>
