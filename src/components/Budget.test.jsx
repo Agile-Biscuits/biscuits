@@ -20,7 +20,7 @@ describe('Budget', () => {
         <Budget name="Test" amount={100} value={50} />
       </EditProvider>,
     );
-    expect(getByText('Test')).toBeTruthy();
+    expect(getByText('Test'.toUpperCase())).toBeTruthy();
   });
   it('should render the budget amount', () => {
     const { getByText } = render(
