@@ -128,3 +128,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# production
+/build
+
+# misc
+.DS_Store
+.idea
+.vscode
