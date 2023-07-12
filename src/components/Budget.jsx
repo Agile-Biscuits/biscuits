@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { EditContext } from '../context/EditContext';
-import { FiEdit2 } from 'react-icons/fi';
+import { PiPencilSimpleBold } from 'react-icons/pi';
 import styled from '@emotion/styled';
+import { EditContext } from '../context/EditContext';
 
 const COLORS = {
   excessive: 'cornflowerblue',
@@ -54,27 +54,39 @@ const InfoContainer = styled.div`
 
 const Name = styled.div`
   margin-left: 1rem;
-  font-size: 20px;
-  font-weight: 500;
-  color: #182B2B;
+  padding: 0.3rem 0.35rem 0.25rem 0.55rem;
+  font-size: 16px;
+  font-weight: 300;
+  text-shadow: -1px -1px 0 rgba(255,255,255,0.2),
+    1px -1px 0 rgba(255,255,255,0.2),
+    -1px 1px 0 rgba(255,255,255,0.2),
+    1px 1px 0 rgba(255,255,255,0.2);
+  letter-spacing: 4px;
+  color: #ffffff;
+  background: #182B2B;
 `;
 
 const IconContainer = styled.div`
-  margin-left: 1rem;
+  position: relative;
+  margin-left: 0.5rem;
 `;
 
-const EditIcon = styled(FiEdit2)`
+const EditIcon = styled(PiPencilSimpleBold)`
   cursor: pointer;
 `;
 
 const NameContainer = styled.div`
+  position: absolute;
+  top: 1rem;
   display: flex;
   align-items: center;
   width: 42%;
 `;
 
 const Value = styled.div`
-  margin-right: 1rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 0.75rem;
   font-size: 36px;
   font-weight: 600;
   color: #182B2B;
@@ -93,18 +105,19 @@ const Fill = styled.div`
 `;
 
 export default function Budget({ name, amount, value }) {
-  const editContext = useContext(EditContext);
+  const { isEditing } = useContext(EditContext);
   return (
     <Container data-testid="budget">
       <Fill amount={amount} value={value} />
       <InfoContainer>
         <NameContainer>
-          <Name>{name}</Name>
-          {editContext.isEditing &&
-          <IconContainer data-testid="edit-icon">
-            <EditIcon />
-          </IconContainer>
-          }
+          <Name>{name.toUpperCase()}</Name>
+          {isEditing
+          && (
+            <IconContainer data-testid="edit-icon">
+              <EditIcon />
+            </IconContainer>
+          )}
         </NameContainer>
         <Value>{`£${getValueWithCommas({ value })}`}</Value>
       </InfoContainer>

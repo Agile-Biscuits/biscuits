@@ -11,6 +11,7 @@ const Container = styled.div`
 export default function Root() {
   const [isEditing, setIsEditing] = useState(false);
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <EditContext.Provider value={{ isEditing, setIsEditing }}>
       <Container>
         <Navbar isEditing={isEditing} setIsEditing={setIsEditing} />

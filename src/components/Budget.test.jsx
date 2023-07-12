@@ -9,32 +9,32 @@ describe('Budget', () => {
     expect(
       render(
         <EditProvider>
-          <Budget name="Test" amount={100} value={50}/>
-        </EditProvider>
-      )
-    ).toBeTruthy()
+          <Budget name="Test" amount={100} value={50} />
+        </EditProvider>,
+      ),
+    ).toBeTruthy();
   });
   it('should render the budget name', () => {
     const { getByText } = render(
       <EditProvider>
-        <Budget name="Test" amount={100} value={50}/>
-      </EditProvider>
+        <Budget name="Test" amount={100} value={50} />
+      </EditProvider>,
     );
-    expect(getByText('Test')).toBeTruthy();
+    expect(getByText('Test'.toUpperCase())).toBeTruthy();
   });
   it('should render the budget amount', () => {
     const { getByText } = render(
       <EditProvider>
-        <Budget name="Test" amount={100} value={50}/>
-      </EditProvider>
+        <Budget name="Test" amount={100} value={50} />
+      </EditProvider>,
     );
     expect(getByText('£50.00')).toBeTruthy();
   });
   it('matches snapshot', () => {
     const { asFragment } = render(
       <EditProvider>
-        <Budget name="Test" amount={100} value={50}/>
-      </EditProvider>
+        <Budget name="Test" amount={100} value={50} />
+      </EditProvider>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
