@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { EditContext } from '../context/EditContext';
+import { FiEdit2 } from 'react-icons/fi';
 import styled from '@emotion/styled';
 
 const COLORS = {
@@ -31,34 +34,55 @@ const getValueWithCommas = ({
 const Container = styled.div`
   position: relative;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 92%;
   height: 100px;
-  background: whitesmoke;
+  background: transparent;
   border: 1px solid whitesmoke;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
   overflow: hidden;
 `;
 
+const InfoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+`;
+
 const Name = styled.div`
-  position: absolute;
-  top: 16px;
-  left: 12px;
+  margin-left: 1rem;
   font-size: 20px;
   font-weight: 500;
   color: #182B2B;
 `;
 
+const IconContainer = styled.div`
+  margin-left: 1rem;
+`;
+
+const EditIcon = styled(FiEdit2)`
+  cursor: pointer;
+`;
+
+const NameContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 42%;
+`;
+
 const Value = styled.div`
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
+  margin-right: 1rem;
   font-size: 36px;
   font-weight: 600;
   color: #182B2B;
 `;
 
 const Fill = styled.div`
+  position: absolute;
+  z-index: -1;
   align-self: flex-end;
   width: 100%;
   height: ${getFillHeight}px;
@@ -69,11 +93,21 @@ const Fill = styled.div`
 `;
 
 export default function Budget({ name, amount, value }) {
+  const editContext = useContext(EditContext);
   return (
     <Container data-testid="budget">
-      <Name>{name}</Name>
-      <Value>{`£${getValueWithCommas({ value })}`}</Value>
       <Fill amount={amount} value={value} />
+      <InfoContainer>
+        <NameContainer>
+          <Name>{name}</Name>
+          {editContext.isEditing &&
+          <IconContainer data-testid="edit-icon">
+            <EditIcon />
+          </IconContainer>
+          }
+        </NameContainer>
+        <Value>{`£${getValueWithCommas({ value })}`}</Value>
+      </InfoContainer>
     </Container>
   );
 }

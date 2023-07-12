@@ -1,5 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import {cleanup, render, screen} from '@testing-library/react';
 import Navbar from './Navbar';
+
+afterEach(cleanup);
 
 describe('Header', () => {
   context('when user loads homepage', () => {
