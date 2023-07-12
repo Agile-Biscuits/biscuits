@@ -7,7 +7,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "test": "jest"
+    "test": "jest --updateSnapshot",
+    "test:watch": "jest --watch --updateSnapshot"
   },
   "repository": {
     "type": "git",

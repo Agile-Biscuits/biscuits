@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Budgets matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1dceos1"
+  >
+    <div
+      class="css-1gm18s5"
+      data-testid="budget"
+    >
+      <div
+        class="css-3yklfd"
+      >
+        Test 2
+      </div>
+      <div
+        class="css-l1myn1"
+      >
+        50
+      </div>
+      <div
+        class="css-1p5cv4y"
+        value="50"
+      />
+    </div>
+    <div
+      class="css-1gm18s5"
+      data-testid="budget"
+    >
+      <div
+        class="css-3yklfd"
+      >
+        Test 1
+      </div>
+      <div
+        class="css-l1myn1"
+      >
+        50
+      </div>
+      <div
+        class="css-1otimsy"
+        value="50"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

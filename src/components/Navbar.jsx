@@ -15,7 +15,7 @@ const Logo = styled.img`
   text-align: center;
 `;
 
-export default function App() {
+export default function Navbar() {
   return (
     <Header data-test-id="logo">
       <Logo src={LogoSrc} alt="logo" />

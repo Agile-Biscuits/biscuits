@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import styled from '@emotion/styled';
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 
 const Container = styled.div`
   font-family: 'Roboto', sans-serif;
@@ -9,7 +9,7 @@ const Container = styled.div`
 export default function Root() {
   return (
     <Container>
-      <Header />
+      <Navbar />
       <Outlet />
     </Container>
   );
