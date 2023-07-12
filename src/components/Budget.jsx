@@ -1,24 +1,37 @@
 import styled from '@emotion/styled';
 
-const getFillHeight = ({ amount, value }) => {
-  const percentage = (value / amount);
+const COLORS = {
+  excessive: 'cornflowerblue',
+  healthy: 'lightseagreen',
+  low: '#FF6347',
+};
 
-  return percentage > 1 ? 198 : percentage * 200 - 2;
+const getFillHeight = ({ amount, value }) => {
+  const HEIGHT_BASE = 200;
+  const HEIGHT_OFFSET = 2;
+  const percentage = (value / amount);
+  return percentage > 1
+    ? HEIGHT_BASE - HEIGHT_OFFSET
+    : percentage * HEIGHT_BASE - HEIGHT_OFFSET;
 };
 const getFillColor = ({
   amount, value,
 }) => {
+  const HEALTHY_RATIO_THRESHOLD = 0.2;
   const ratio = value / amount;
-
-  if (ratio > 1) return 'cornflowerblue';
-
-  return value / amount > 0.2
-    ? 'lightseagreen'
-    : '#FF6347';
+  if (ratio > 1) return COLORS.excessive;
+  return ratio > HEALTHY_RATIO_THRESHOLD ? COLORS.healthy : COLORS.low;
 };
 const getValueWithCommas = ({
   value,
 }) => value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+const textShadow = `
+  text-shadow: -1px -1px 0 rgba(255,255,255,0.2),
+  1px -1px 0 rgba(255,255,255,0.2),
+  -1px 1px 0 rgba(255,255,255,0.2),
+  1px 1px 0 rgba(255,255,255,0.2);
+`;
 
 const Container = styled.div`
   position: relative;
@@ -59,6 +72,27 @@ const Container = styled.div`
     content: '${({ value }) => `£${getValueWithCommas({ value })}`}';
   }
 `;
+
+const Name = styled.div`
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #182B2B;
+  text-shadow: ${textShadow};
+`;
+
+const Value = styled.div`
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #182B2B;
+  text-shadow: ${textShadow};
+`;
+
 const Fill = styled.div`
   align-self: flex-end;
   width: 100%;
@@ -71,7 +105,9 @@ const Fill = styled.div`
 
 export default function Budget({ name, amount, value }) {
   return (
-    <Container name={name} value={value}>
+    <Container data-testid="budget">
+      <Name>{name}</Name>
+      <Value>{value}</Value>
       <Fill amount={amount} value={value} />
     </Container>
   );
