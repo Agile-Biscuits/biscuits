@@ -14,8 +14,8 @@ describe('Budgets', () => {
       render(
         <EditProvider>
           <Budgets budgets={budgets} />
-        </EditProvider>
-      )
+        </EditProvider>,
+      ),
     ).toBeTruthy();
   });
   it('renders correct number of budgets', () => {
@@ -26,7 +26,7 @@ describe('Budgets', () => {
     const { getAllByTestId } = render(
       <EditProvider>
         <Budgets budgets={budgets} />
-      </EditProvider>
+      </EditProvider>,
     );
     expect(getAllByTestId('budget').length).toBe(budgets.length);
   });
@@ -38,7 +38,7 @@ describe('Budgets', () => {
     const { asFragment } = render(
       <EditProvider>
         <Budgets budgets={budgets} />
-      </EditProvider>
+      </EditProvider>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
