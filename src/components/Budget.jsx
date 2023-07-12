@@ -16,6 +16,9 @@ const getFillColor = ({
     ? 'lightseagreen'
     : '#FF6347';
 };
+const getValueWithCommas = ({
+  value,
+}) => value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const Container = styled.div`
   position: relative;
@@ -47,13 +50,13 @@ const Container = styled.div`
     bottom: 12px;
     right: 12px;
     font-size: 36px;
-    font-weight: 800;
+    font-weight: 600;
     color: #182B2B;
     text-shadow: -1px -1px 0 rgba(255,255,255,0.2),
       1px -1px 0 rgba(255,255,255,0.2),
       -1px 1px 0 rgba(255,255,255,0.2),
       1px 1px 0 rgba(255,255,255,0.2);
-    content: '${({ value }) => value}';
+    content: '${({ value }) => `£${getValueWithCommas({ value })}`}';
   }
 `;
 const Fill = styled.div`
