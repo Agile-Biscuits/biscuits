@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup } from '@testing-library/react';
 import Budgets from './Budgets';
 
 afterEach(cleanup);

@@ -24,14 +24,9 @@ const getFillColor = ({
 };
 const getValueWithCommas = ({
   value,
-}) => value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-const textShadow = `
-  text-shadow: -1px -1px 0 rgba(255,255,255,0.2),
-  1px -1px 0 rgba(255,255,255,0.2),
-  -1px 1px 0 rgba(255,255,255,0.2),
-  1px 1px 0 rgba(255,255,255,0.2);
-`;
+}) => (value
+  ? value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  : 0);
 
 const Container = styled.div`
   position: relative;
@@ -43,34 +38,6 @@ const Container = styled.div`
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
   overflow: hidden;
-
-  &::before {
-    position: absolute;
-    top: 16px;
-    left: 12px;
-    font-size: 20px;
-    font-weight: 500;
-    color: #182B2B;
-    text-shadow: -1px -1px 0 rgba(255,255,255,0.2),
-      1px -1px 0 rgba(255,255,255,0.2),
-      -1px 1px 0 rgba(255,255,255,0.2),
-      1px 1px 0 rgba(255,255,255,0.2);
-    content: '${({ name }) => name}';
-  }
-
-  &::after {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    font-size: 36px;
-    font-weight: 600;
-    color: #182B2B;
-    text-shadow: -1px -1px 0 rgba(255,255,255,0.2),
-      1px -1px 0 rgba(255,255,255,0.2),
-      -1px 1px 0 rgba(255,255,255,0.2),
-      1px 1px 0 rgba(255,255,255,0.2);
-    content: '${({ value }) => `£${getValueWithCommas({ value })}`}';
-  }
 `;
 
 const Name = styled.div`
@@ -80,7 +47,6 @@ const Name = styled.div`
   font-size: 20px;
   font-weight: 500;
   color: #182B2B;
-  text-shadow: ${textShadow};
 `;
 
 const Value = styled.div`
@@ -88,9 +54,8 @@ const Value = styled.div`
   bottom: 12px;
   right: 12px;
   font-size: 36px;
-  font-weight: 800;
+  font-weight: 600;
   color: #182B2B;
-  text-shadow: ${textShadow};
 `;
 
 const Fill = styled.div`
@@ -107,7 +72,7 @@ export default function Budget({ name, amount, value }) {
   return (
     <Container data-testid="budget">
       <Name>{name}</Name>
-      <Value>{value}</Value>
+      <Value>{`£${getValueWithCommas({ value })}`}</Value>
       <Fill amount={amount} value={value} />
     </Container>
   );
