@@ -105,19 +105,19 @@ const Fill = styled.div`
 `;
 
 export default function Budget({ name, amount, value }) {
-  const { isEditing } = useContext(EditContext);
+  // const { isEditing } = useContext(EditContext);
   return (
     <Container data-testid="budget">
       <Fill amount={amount} value={value} />
       <InfoContainer>
         <NameContainer>
           <Name>{name.toUpperCase()}</Name>
-          {isEditing
-          && (
-            <IconContainer data-testid="edit-icon">
-              <EditIcon />
-            </IconContainer>
-          )}
+          {/*{isEditing*/}
+          {/*&& (*/}
+          {/*  <IconContainer data-testid="edit-icon">*/}
+          {/*    <EditIcon />*/}
+          {/*  </IconContainer>*/}
+          {/*)}*/}
         </NameContainer>
         <Value>{`£${getValueWithCommas({ value })}`}</Value>
       </InfoContainer>
