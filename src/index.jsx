@@ -7,6 +7,7 @@ import Root from './routes/root';
 import ErrorPage from './pages/ErrorPage';
 import BudgetsPage from './pages/BudgetsPage';
 import EnvelopePage from "./pages/EnvelopePage";
+import AddEnvelopePage from "./pages/AddEnvelopePage";
 
 const router = createBrowserRouter([
   {
@@ -18,10 +19,14 @@ const router = createBrowserRouter([
         path: '',
         element: <BudgetsPage />,
       },
-        {
-        path: '/envelope',
+      {
+        path: '/envelopes',
         element: <EnvelopePage />,
-        }
+      },
+      {
+        path: '/envelopes/add',
+        component: <AddEnvelopePage />
+      },
     ],
   },
 ]);
