@@ -38,11 +38,11 @@ const Container = styled.div`
   align-items: center;
   width: 92%;
   height: 100px;
-  background: transparent;
-  border: 1px solid whitesmoke;
+  background: whitesmoke;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
   overflow: hidden;
+  z-index: -1;
 `;
 
 const InfoContainer = styled.div`
