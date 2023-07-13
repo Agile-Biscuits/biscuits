@@ -10,7 +10,7 @@ const COLORS = {
 };
 
 const getFillHeight = ({ amount, value }) => {
-  const HEIGHT_BASE = 200;
+  const HEIGHT_BASE = 100;
   const HEIGHT_OFFSET = 2;
   const percentage = (value / amount);
   return percentage > 1
