@@ -4,7 +4,7 @@ const budgets = [
   new Budget({
     name: 'Food',
     amount: 100,
-    value: 80.10,
+    value: 100,
   }),
   new Budget({
     name: 'Shopping',
