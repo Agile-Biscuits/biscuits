@@ -15,16 +15,16 @@ export const routes = [
     component: BudgetsPage,
     exact: true,
   },
-  {
-    path: '/envelopes',
-    component: EnvelopePage,
-    exact: true,
-  },
-  {
-    path: '/envelopes/add',
-    component: AddEnvelopePage,
-    exact: true,
-  },
+  // {
+  //   path: '/envelopes',
+  //   component: EnvelopePage,
+  //   exact: true,
+  // },
+  // {
+  //   path: '/envelopes/add',
+  //   component: AddEnvelopePage,
+  //   exact: true,
+  // },
   {
     path: '*',
     component: ErrorPage,

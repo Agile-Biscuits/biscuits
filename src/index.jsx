@@ -22,10 +22,12 @@ const router = createBrowserRouter([
       {
         path: '/envelopes',
         element: <EnvelopePage />,
-      },
-      {
-        path: '/envelopes/add',
-        component: <AddEnvelopePage />
+        children: [
+          {
+            path: '/envelopes/add',
+            component: <AddEnvelopePage />
+          },
+        ],
       },
     ],
   },

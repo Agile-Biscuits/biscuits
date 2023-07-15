@@ -1,52 +1,56 @@
-import { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from '@emotion/styled';
-import { PiPencilSimpleBold } from 'react-icons/pi';
+import { useContext } from 'react';
 import { BudgetsContext } from '../context/BudgetsContext';
 
-const ListContainer = styled.ul`
-  list-style: none;
-  padding: 0;
+const FormContainer = styled.div`
+  width: 400px;
+  margin: 0 auto;
 `;
 
-const ListItem = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 16px;
-  border-top: 2px solid #000;
-  border-bottom: 1px solid #ccc;
-
-  &:first-of-type {
-    border-top: none;
-  }
-
-  &:last-of-type {
-    border-bottom: none;
-  }
+const Input = styled.input`
+  width: 100%;
+  margin-bottom: 10px;
 `;
 
-const BudgetName = styled.p`
-  margin: 0;
-  font-weight: bold;
-`;
-
-const EditIcon = styled(PiPencilSimpleBold)`
+const Button = styled.button`
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
   cursor: pointer;
 `;
 
+const Container = styled.div`
+  width: 400px;
+  margin: 0 auto;
+`;
 
 export default function AddEnvelopePage() {
-  const { budgets } = useContext(BudgetsContext);
+  // const { addBudget } = useContext(BudgetsContext);
+  //
+  // const [name, setName] = useState('');
+  // const [amount, setAmount] = useState(0);
+
+  const handleSubmit = (event) => {
+    //   event.preventDefault();
+    //
+    //   // Create a new budget
+    //   const newBudget = {
+    //     name,
+    //     amount,
+    //   };
+    //
+    //   // Add the new budget
+    //   addBudget(newBudget);
+  };
+
+  debugger;
+  console.log('name', name);
+  console.log('amount', amount);
 
   return (
-    <ListContainer>
-      {budgets.map((budget) => (
-        <ListItem key={budget.id}>
-          <BudgetName data-testid="budget-name" >{budget.name}</BudgetName>
-          <EditIcon />
-        </ListItem>
-      ))}
-    </ListContainer>
+    <Container>
+      <h1>Envelope Page</h1>
+    </Container>
   );
 }
-
