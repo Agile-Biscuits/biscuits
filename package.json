@@ -7,6 +7,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
+    "serve": "parcel serve",
     "test": "jest --updateSnapshot",
     "test:watch": "jest --watch --updateSnapshot"
   },
@@ -43,6 +44,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.11.0",
+    "history": "^5.3.0",
     "jest-environment-jsdom": "^29.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
