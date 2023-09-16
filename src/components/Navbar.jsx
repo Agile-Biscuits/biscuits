@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import styled from '@emotion/styled';
-import { PiPencilSimpleBold, PiX } from 'react-icons/pi';
+import { PiPencilSimpleBold, PiX, PiPlusBold } from 'react-icons/pi';
 import { EditContext } from '../context/EditContext';
 import { Link, useLocation } from 'react-router-dom';
 import LogoSrc from '../assets/images/logo.svg';
@@ -43,18 +43,26 @@ export default function Navbar() {
 
   const location = useLocation();
   const isHomepage = location.pathname === '/';
+  const isAddEnvelopePage = location.pathname === '/envelopes/add';
 
   const { isEditing, setIsEditing } = useContext(EditContext);
-  const handleIconClick = () => {
+  const handlePencilIconClick = () => {
     console.log('clicked');
     console.log('isEditing ', isEditing);
     setIsInHomePage(!isEditing);
     setIsEditing(!isEditing);
   };
 
+  const handlePlusIconClick = () => {
+    console.log('clicked plus icon');
+    console.log('isEditing ', isEditing);
+    // setIsInHomePage(!isEditing);
+    // setIsEditing(!isEditing);
+  };
+
   const handleReturnToHome = () => {
     setIsInHomePage(true);
-    window.location.href = '/';
+    setIsEditing(false);
   };
 
   return (
@@ -67,14 +75,27 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            <XIcon onClick={handleReturnToHome} data-testid="navbar-x-icon" />
-            <Header data-test-id="header">Wallet</Header>
+          <Link to="/" data-testid="navbar-edit-icon-link" >
+              <XIcon onClick={handleReturnToHome} data-testid="navbar-x-icon" />
+          </Link>
+            {isAddEnvelopePage ? (
+              <Header data-test-id="header">Add Envelope</Header>
+            ) : (
+              <Header data-test-id="header">Wallet</Header>
+            )}
           </>
         )}
       </LeftContainer>
-      <Link to={isEditing ? "/" : "/envelope"} data-testid="navbar-edit-icon-link" >
-        <EditIcon onClick={handleIconClick} data-testid="navbar-edit-icon" />
-      </Link>
+      { isEditing ? null : (
+        <Link to={"/envelopes"} data-testid="navbar-edit-icon-link" >
+          <EditIcon onClick={handlePencilIconClick} data-testid="navbar-edit-icon" />
+        </Link>
+      )}
+      {location.pathname === '/envelopes' && (
+        <Link to="/envelopes/add">
+          <PiPlusBold onClick={handlePlusIconClick}/>
+        </Link>
+      )}
     </NavbarContainer>
   );
 }

@@ -7,7 +7,7 @@ export const BudgetsProvider = ({ children }) => {
   const [budgetsData, setBudgetsData] = useState([]);
 
   useEffect(() => {
-    setBudgetsData(budgets); // set your budgets data when the component mounts
+    setBudgetsData(budgets);
   }, []);
 
   return (

@@ -1,7 +1,8 @@
 import Root from "./root";
 import ErrorPage from "../pages/ErrorPage";
 import BudgetsPage from "../pages/BudgetsPage";
-// import EnvelopePage from "./pages/EnvelopePage";
+import EnvelopePage from "../pages/EnvelopePage";
+import AddEnvelopePage from "../pages/AddEnvelopePage";
 
 export const routes = [
   {
@@ -17,6 +18,11 @@ export const routes = [
   // {
   //   path: '/envelopes',
   //   component: EnvelopePage,
+  //   exact: true,
+  // },
+  // {
+  //   path: '/envelopes/add',
+  //   component: AddEnvelopePage,
   //   exact: true,
   // },
   {
