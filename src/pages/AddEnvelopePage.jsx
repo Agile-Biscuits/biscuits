@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import styled from '@emotion/styled';
-import { useContext } from 'react';
 import { BudgetsContext } from '../context/BudgetsContext';
 
 const FormContainer = styled.div`
