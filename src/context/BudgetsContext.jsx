@@ -4,11 +4,7 @@ import budgets from '../../fixtures/budgets';
 export const BudgetsContext = createContext();
 
 export const BudgetsProvider = ({ children }) => {
-  const [budgetsData, setBudgetsData] = useState([]);
-
-  useEffect(() => {
-    setBudgetsData(budgets);
-  }, []);
+  const [budgetsData, setBudgetsData] = useState(budgets);
 
   return (
     <BudgetsContext.Provider value={{ budgets: budgetsData, setBudgets: setBudgetsData }}>
