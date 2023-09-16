@@ -3,11 +3,11 @@
 exports[`Budget matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="css-r4vupi"
+    class="css-187fsld"
     data-testid="budget"
   >
     <div
-      class="css-5ktx6p"
+      class="css-1sy3bfc"
       value="50"
     />
     <div
