@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styled from '@emotion/styled';
-import { PiPencilSimpleBold } from 'react-icons/pi';
+import { PiPencilSimpleBold, PiTrashSimple } from 'react-icons/pi';
 import { BudgetsContext } from '../context/BudgetsContext';
 
 const ListContainer = styled.ul`
@@ -30,20 +30,42 @@ const BudgetName = styled.p`
   font-weight: bold;
 `;
 
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+`;
+
 const EditIcon = styled(PiPencilSimpleBold)`
   cursor: pointer;
 `;
 
+const TrashIcon = styled(PiTrashSimple)`
+  cursor: pointer;
+`;
 
 export default function EnvelopePage() {
-  const { budgets } = useContext(BudgetsContext);
+  const { budgets, setBudgets } = useContext(BudgetsContext);
+
+  const handleDeleteBudget = (budgetId) => {
+    console.log('delete budget with id: ', budgetId);
+    // Delete the budget from the list
+    const newBudgets = budgets.filter((budget) => budget.id !== budgetId);
+    console.log('newBudgets: ', newBudgets);
+
+    // Update the state
+    setBudgets(newBudgets);
+  };
 
   return (
     <ListContainer>
       {budgets.map((budget) => (
         <ListItem key={budget.id}>
           <BudgetName data-testid="budget-name" >{budget.name}</BudgetName>
-          <EditIcon />
+          <IconContainer>
+            <EditIcon />
+            <TrashIcon onClick={() => handleDeleteBudget(budget.id)} data-testid="trash-icon" />
+          </IconContainer>
         </ListItem>
       ))}
     </ListContainer>
