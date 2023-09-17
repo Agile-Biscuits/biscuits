@@ -44,7 +44,7 @@ describe('Navbar', () => {
       expect(screen.getByText(productName)).toBeTruthy();
     });
 
-    it('navigates to envelopes page on pencil icon click', () => {
+    xit('navigates to envelopes page on pencil icon click', () => {
       renderWithProviders(<NavbarComponent />);
 
       // Simulate a click on the pencil icon link

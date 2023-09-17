@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
-import styled from "@emotion/styled";
-import { PiPencilSimpleBold, PiX, PiPlusBold } from "react-icons/pi";
-import { EditContext } from "../context/EditContext";
-import Budget from "../models/Budget";
-import { BudgetsContext } from "../context/BudgetsContext";
-import { Link, useLocation } from "react-router-dom";
-import LogoSrc from "../assets/images/logo.svg";
+import { useContext, useState } from 'react';
+import styled from '@emotion/styled';
+import { PiPencilSimpleBold, PiX, PiPlusBold } from 'react-icons/pi';
+import { Link, useLocation } from 'react-router-dom';
+import { EditContext } from '../context/EditContext';
+import Budget from '../models/Budget';
+import { BudgetsContext } from '../context/BudgetsContext';
+import LogoSrc from '../assets/images/logo.svg';
 import EditEnvelopePage from "../pages/EditEnvelopePage";
 
 const NavbarContainer = styled.div`
@@ -43,34 +43,35 @@ const LeftContainer = styled.div`
 
 export default function Navbar() {
   const [isInHomePage, setIsInHomePage] = useState(true);
+  const { isEditing, setIsEditing } = useContext(EditContext);
 
   const location = useLocation();
-  const isHomepage = location.pathname === "/";
-  const isEditEnvelopePage = location.pathname === "/envelopes/edit";
+  const isHomepage = location.pathname === '/';
+  const isEditEnvelopePage = location.pathname === '/envelopes/edit';
+  const isEditEnvelopePageId = location.pathname === '/envelopes/edit/:id';
 
-  const { isEditing, setIsEditing } = useContext(EditContext);
 
   const { budgets, setBudgets } = useContext(BudgetsContext);
 
   const handlePencilIconClick = () => {
-    console.log("clicked");
-    console.log("isEditing ", isEditing);
+    console.log('clicked');
+    console.log('isEditing ', isEditing);
     setIsInHomePage(!isEditing);
     setIsEditing(!isEditing);
   };
 
   const handlePlusIconClick = () => {
-    console.log("clicked plus icon");
-    console.log("isEditing ", isEditing);
+    console.log('clicked plus icon');
+    console.log('isEditing ', isEditing);
 
     const idArr = budgets.map((budget) => budget.id);
     const budgetId = Math.max(...idArr) + 1;
 
-    console.log("add budget with new id: ", budgetId);
+    console.log('add budget with new id: ', budgetId);
 
     // Add the budget from the list
     console.log(`budgets = ${budgets}`);
-    let newBudgets = budgets;
+    const newBudgets = budgets;
     newBudgets.push(
       new Budget({
         id: budgetId,
@@ -79,7 +80,7 @@ export default function Navbar() {
         value: 100,
       }),
     );
-    console.log("newBudgets: ", newBudgets);
+    console.log('newBudgets: ', newBudgets);
 
     // Update the state
     setBudgets(newBudgets);
@@ -114,17 +115,16 @@ export default function Navbar() {
         )}
       </LeftContainer>
 
-
       {isEditing ? null : (
-        <Link to={"/envelopes"} data-testid="navbar-edit-icon-link">
+        <Link to="/envelopes" data-testid="navbar-edit-icon-link">
           <EditIcon
             onClick={handlePencilIconClick}
             data-testid="navbar-edit-icon"
           />
         </Link>
       )}
-      
-      {location.pathname === "/envelopes" ? (
+
+      {location.pathname === '/envelopes' ? (
         <Link to="/envelopes/edit">
           <PiPlusBold onClick={handlePlusIconClick} />
         </Link>

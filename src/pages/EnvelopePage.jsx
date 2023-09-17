@@ -73,6 +73,17 @@ export default function EnvelopePage() {
     setBudgets(newBudgets);
   };
 
+  const updateBudget = (updatedBudget) => {
+    const updatedBudgets = budgets.map((budget) => {
+      budget.id === updatedBudget.id ? updatedBudget : budget;
+    });
+    setBudgets(updatedBudgets);
+  };
+
+  const handleEditEnd = () => {
+    setBudgetEditID(-1);
+  };
+
   console.log(`Budgets in Envelope page is currently ${budgets}`);
   console.log(`Budget ID is ${budgetEditID}`);
 
@@ -95,6 +106,6 @@ export default function EnvelopePage() {
       ))}
     </ListContainer>
   ) : (
-    <EditEnvelopePage budgetID={budgetEditID} />
+    <EditEnvelopePage budgetID={budgetEditID} onUpdateBudget={updateBudget} onEditEnd={handleEditEnd}/>
   );
 }
