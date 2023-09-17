@@ -3,57 +3,57 @@
 exports[`Budgets matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="css-1dceos1"
+    class="css-1zblq7-Container eo0izpr0"
   >
     <div
-      class="css-187fsld"
+      class="css-8w9okj-Container e1dz7f3g7"
       data-testid="budget"
     >
       <div
-        class="css-129zg9s"
+        class="css-cwb82f-Fill e1dz7f3g0"
         value="50"
       />
       <div
-        class="css-e8ahv6"
+        class="css-15xwpwu-InfoContainer e1dz7f3g6"
       >
         <div
-          class="css-10f0gi5"
+          class="css-njdknn-NameContainer e1dz7f3g2"
         >
           <div
-            class="css-1c4be9w"
+            class="css-kh8k75-Name e1dz7f3g5"
           >
             TEST 2
           </div>
         </div>
         <div
-          class="css-wrkjc"
+          class="css-7nkki1-Value e1dz7f3g1"
         >
           £50.00
         </div>
       </div>
     </div>
     <div
-      class="css-187fsld"
+      class="css-8w9okj-Container e1dz7f3g7"
       data-testid="budget"
     >
       <div
-        class="css-1sy3bfc"
+        class="css-1qtj0e0-Fill e1dz7f3g0"
         value="50"
       />
       <div
-        class="css-e8ahv6"
+        class="css-15xwpwu-InfoContainer e1dz7f3g6"
       >
         <div
-          class="css-10f0gi5"
+          class="css-njdknn-NameContainer e1dz7f3g2"
         >
           <div
-            class="css-1c4be9w"
+            class="css-kh8k75-Name e1dz7f3g5"
           >
             TEST 1
           </div>
         </div>
         <div
-          class="css-wrkjc"
+          class="css-7nkki1-Value e1dz7f3g1"
         >
           £50.00
         </div>

@@ -1,8 +1,9 @@
-import { useContext, useState, useEffect } from "react";
-import styled from "@emotion/styled";
-import { PiPencilSimpleBold, PiTrashSimple } from "react-icons/pi";
-import { BudgetsContext } from "../context/BudgetsContext";
-import EditEnvelopePage from "./EditEnvelopePage";
+import { useContext, useState, useEffect } from 'react';
+import styled from '@emotion/styled';
+import { PiPencilSimpleBold, PiTrashSimple } from 'react-icons/pi';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { BudgetsContext } from '../context/BudgetsContext';
+import EditEnvelopePage from './EditEnvelopePage';
 
 const ListContainer = styled.ul`
   list-style: none;
@@ -47,7 +48,8 @@ const TrashIcon = styled(PiTrashSimple)`
 
 export default function EnvelopePage() {
   const { budgets, setBudgets } = useContext(BudgetsContext);
-  const [ budgetEditID, setBudgetEditID ] = useState(-1);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+  const [budgetEditID, setBudgetEditID] = useState(-1);
 
   useEffect(() => {
     console.log(budgetEditID);
@@ -55,23 +57,23 @@ export default function EnvelopePage() {
 
   const handleEditBudget = (budgetID) => {
     console.log(`Handing edit of budget ID ${budgetID}`);
-    console.log(`Set Edit ID funciton is ${self}`)
-    
+    console.log(`Set Edit ID funciton is ${self}`);
+
     setBudgetEditID(budgetID);
+    navigate(`/envelopes/edit/${budgetID}`);
   };
 
   const handleDeleteBudget = (budgetId) => {
-    console.log("delete budget with id: ", budgetId);
+    console.log('delete budget with id: ', budgetId);
     // Delete the budget from the list
     const newBudgets = budgets.filter((budget) => budget.id !== budgetId);
-    console.log("newBudgets: ", newBudgets);
+    console.log('newBudgets: ', newBudgets);
 
     // Update the state
     setBudgets(newBudgets);
   };
 
   console.log(`Budgets in Envelope page is currently ${budgets}`);
-
   console.log(`Budget ID is ${budgetEditID}`);
 
   return (budgetEditID <= -1 || isNaN(budgetEditID)) ? (

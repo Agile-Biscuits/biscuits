@@ -3,27 +3,27 @@
 exports[`Budget matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="css-187fsld"
+    class="css-8w9okj-Container e1dz7f3g7"
     data-testid="budget"
   >
     <div
-      class="css-1sy3bfc"
+      class="css-1qtj0e0-Fill e1dz7f3g0"
       value="50"
     />
     <div
-      class="css-e8ahv6"
+      class="css-15xwpwu-InfoContainer e1dz7f3g6"
     >
       <div
-        class="css-10f0gi5"
+        class="css-njdknn-NameContainer e1dz7f3g2"
       >
         <div
-          class="css-1c4be9w"
+          class="css-kh8k75-Name e1dz7f3g5"
         >
           TEST
         </div>
       </div>
       <div
-        class="css-wrkjc"
+        class="css-7nkki1-Value e1dz7f3g1"
       >
         £50.00
       </div>

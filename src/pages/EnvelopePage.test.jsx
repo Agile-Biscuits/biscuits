@@ -1,12 +1,12 @@
-import { render, fireEvent } from "@testing-library/react";
-import EnvelopePage from "./EnvelopePage";
+import { render, fireEvent } from '@testing-library/react';
+import EnvelopePage from './EnvelopePage';
 import { BudgetsContext } from '../context/BudgetsContext';
 
-describe("EnvelopePage", () => {
-  it("renders a list of budgets", () => {
+describe('EnvelopePage', () => {
+  it('renders a list of budgets', () => {
     const budgets = [
-      { id: 1, name: "Groceries" },
-      { id: 2, name: "Rent" },
+      { id: 1, name: 'Groceries' },
+      { id: 2, name: 'Rent' },
     ];
 
     const { getAllByTestId } = render(

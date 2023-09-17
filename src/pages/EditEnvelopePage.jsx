@@ -1,7 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
-import styled from "@emotion/styled";
-import { BudgetsContext } from "../context/BudgetsContext";
-import Budget from "../models/Budget";
+import { useState, useContext, useEffect } from 'react';
+import styled from '@emotion/styled';
+import { useParams } from 'react-router-dom';
+import { BudgetsContext } from '../context/BudgetsContext';
+import Budget from '../models/Budget';
 
 const FormContainer = styled.div`
   width: 400px;
@@ -27,6 +28,7 @@ const Container = styled.div`
 
 export default function EditEnvelopePage(props) {
   const { budgets, setBudgets } = useContext(BudgetsContext);
+  const { budgetID } = useParams();
 
   console.log(`Edit page budget ID is ${props.budgetID}`);
 
