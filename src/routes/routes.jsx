@@ -4,6 +4,7 @@ import BudgetsPage from "../pages/BudgetsPage";
 import EnvelopePage from "../pages/EnvelopePage";
 import AddEnvelopePage from "../pages/AddEnvelopePage";
 import EditEnvelopePage from "../pages/EditEnvelopePage";
+import TransactionsPage from "../pages/TransactionsPage";
 
 export const routes = [
   {
@@ -29,6 +30,11 @@ export const routes = [
   {
     path: "/envelopes/edit",
     component: EditEnvelopePage,
+    exact: true,
+  },
+  {
+    path: "/transactions/:budgetName",
+    component: TransactionsPage,
     exact: true,
   },
   {

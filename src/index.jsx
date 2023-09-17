@@ -6,6 +6,7 @@ import BudgetsPage from './pages/BudgetsPage';
 import EnvelopePage from './pages/EnvelopePage';
 import AddEnvelopePage from './pages/AddEnvelopePage';
 import EditEnvelopePage from './pages/EditEnvelopePage';
+import TransactionPage from './pages/TransactionsPage';
 
 const router = createBrowserRouter([
   {
@@ -22,12 +23,22 @@ const router = createBrowserRouter([
         element: <EnvelopePage />,
         children: [
           {
-            path: '/envelopes/add',
-            component: <AddEnvelopePage />,
+            path: 'add',
+            element: <AddEnvelopePage />,
           },
           {
-            path: '/envelopes/edit/:budgetID',
-            component: <EditEnvelopePage />,
+            path: 'edit/:budgetID',
+            element: <EditEnvelopePage />,
+          }
+        ],
+      },
+      {
+        path: '/transactions',
+        element: <TransactionPage />,
+        children: [
+          {
+            path: ':budgetName',
+            element: <TransactionPage />,
           },
         ],
       },

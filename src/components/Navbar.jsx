@@ -49,6 +49,7 @@ export default function Navbar() {
   const isHomepage = location.pathname === '/';
   const isEditEnvelopePage = location.pathname === '/envelopes/edit';
   const isEditEnvelopePageId = location.pathname === '/envelopes/edit/:id';
+  const isTransactionsPage = location.pathname.startsWith('/transactions');
 
 
   const { budgets, setBudgets } = useContext(BudgetsContext);
@@ -93,42 +94,50 @@ export default function Navbar() {
     setIsEditing(false);
   };
 
+  const getHeaderTitle = () => {
+    if (isHomepage) {
+      return 'Biscuits';
+    }
+    if (isEditEnvelopePage) {
+      return 'Edit Envelope';
+    }
+    if (isTransactionsPage) {
+      return 'Transactions';
+    }
+    return 'Wallet';
+  };
+
+  const headerTitle = getHeaderTitle();
+
   return (
     <NavbarContainer>
       <LeftContainer>
         {isHomepage ? (
           <>
             <Logo src={LogoSrc} alt="logo" />
-            <Header data-test-id="logo">Biscuits</Header>
+            <Header data-test-id="logo">{headerTitle}</Header>
           </>
         ) : (
           <>
             <Link to="/" data-testid="navbar-edit-icon-link">
               <XIcon onClick={handleReturnToHome} data-testid="navbar-x-icon" />
             </Link>
-            {isEditEnvelopePage ? (
-              <Header data-test-id="header">Edit Envelope</Header>
-            ) : (
-              <Header data-test-id="header">Wallet</Header>
-            )}
+            <Header data-test-id="header">{headerTitle}</Header>
           </>
         )}
       </LeftContainer>
 
-      {isEditing ? null : (
+      {!isEditing && (
         <Link to="/envelopes" data-testid="navbar-edit-icon-link">
-          <EditIcon
-            onClick={handlePencilIconClick}
-            data-testid="navbar-edit-icon"
-          />
+          <EditIcon onClick={handlePencilIconClick} data-testid="navbar-edit-icon" />
         </Link>
       )}
 
-      {location.pathname === '/envelopes' ? (
+      {location.pathname === '/envelopes' && (
         <Link to="/envelopes/edit">
           <PiPlusBold onClick={handlePlusIconClick} />
         </Link>
-      ) : null}
+      )}
     </NavbarContainer>
   );
 }

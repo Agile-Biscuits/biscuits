@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { PiPencilSimpleBold } from 'react-icons/pi';
 import styled from '@emotion/styled';
 import { EditContext } from '../context/EditContext';
+import { Link } from 'react-router-dom';
 
 const COLORS = {
   excessive: 'cornflowerblue',
@@ -36,7 +37,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 92%;
+  width: 100%;
   height: 100px;
   background: whitesmoke;
   border-radius: 8px;
@@ -104,14 +105,23 @@ const Fill = styled.div`
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.25);
 `;
 
+const StyledLink = styled(Link)`
+  display: flex; // or display: block if flex doesn't work
+  text-decoration: none;
+  color: inherit;
+  width: 92%;
+  margin: auto; // This centers the StyledLink flex items.
+`;
+
 export default function Budget({ name, amount, value }) {
   const { isEditing } = useContext(EditContext);
   return (
+    <StyledLink to={`/transactions/${name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
     <Container data-testid="budget">
       <Fill amount={amount} value={value} />
       <InfoContainer>
         <NameContainer>
-          <Name>{name.toUpperCase()}</Name>
+            <Name>{name.toUpperCase()}</Name>
           {isEditing
           && (
             <IconContainer data-testid="edit-icon">
@@ -122,5 +132,6 @@ export default function Budget({ name, amount, value }) {
         <Value>{`£${getValueWithCommas({ value })}`}</Value>
       </InfoContainer>
     </Container>
+    </StyledLink>
   );
 }
