@@ -3,30 +3,36 @@ import ErrorPage from "../pages/ErrorPage";
 import BudgetsPage from "../pages/BudgetsPage";
 import EnvelopePage from "../pages/EnvelopePage";
 import AddEnvelopePage from "../pages/AddEnvelopePage";
+import EditEnvelopePage from "../pages/EditEnvelopePage";
 
 export const routes = [
   {
-    path: '/',
+    path: "/",
     component: Root,
     exact: true,
   },
   {
-    path: '/budgets',
+    path: "/budgets",
     component: BudgetsPage,
     exact: true,
   },
   {
-    path: '/envelopes',
+    path: "/envelopes",
     component: EnvelopePage,
     exact: true,
   },
   {
-    path: '/envelopes/add',
+    path: "/envelopes/add",
     component: AddEnvelopePage,
     exact: true,
   },
   {
-    path: '*',
+    path: "/envelopes/edit",
+    component: EditEnvelopePage,
+    exact: true,
+  },
+  {
+    path: "*",
     component: ErrorPage,
   },
 ];

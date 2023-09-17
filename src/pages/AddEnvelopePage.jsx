@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react';
-import styled from '@emotion/styled';
-import { BudgetsContext } from '../context/BudgetsContext';
+import React, { useState, useContext } from "react";
+import styled from "@emotion/styled";
+import { BudgetsContext } from "../context/BudgetsContext";
+import Budget from "../components/Budget";
 
 const FormContainer = styled.div`
   width: 400px;
@@ -25,27 +26,36 @@ const Container = styled.div`
 `;
 
 export default function AddEnvelopePage() {
-  // const { addBudget } = useContext(BudgetsContext);
-  //
+  const { budgets, setBudgets } = useContext(BudgetsContext);
+
   // const [name, setName] = useState('');
   // const [amount, setAmount] = useState(0);
 
   const handleSubmit = (event) => {
-    //   event.preventDefault();
-    //
-    //   // Create a new budget
-    //   const newBudget = {
-    //     name,
-    //     amount,
-    //   };
-    //
-    //   // Add the new budget
-    //   addBudget(newBudget);
+    event.preventDefault();
+
+    const budgetId = Math.max(budgets.map((budget) => budget.id));
+
+    console.log("add budget with new id: ", budgetId);
+
+    // Add the budget from the list
+    const newBudgets = budgets.push(
+      new Budget({
+        id: budgetId,
+        name: "NewBudget" + String(budgetId),
+        amount: 100,
+        value: 100,
+      }),
+    );
+    console.log("newBudgets: ", newBudgets);
+
+    // Update the state
+    setBudgets(newBudgets);
   };
 
-  debugger;
-  console.log('name', name);
-  console.log('amount', amount);
+  // debugger;
+  // console.log("name", name);
+  // console.log("amount", amount);
 
   return (
     <Container>
