@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import styled from '@emotion/styled';
 import Navbar from '../components/Navbar';
 import { EditContext } from '../context/EditContext';
-import { BudgetsProvider} from "../context/BudgetsContext";
+import { BudgetsProvider} from '../context/BudgetsContext';
 
 const Container = styled.div`
   font-family: 'Roboto', sans-serif;

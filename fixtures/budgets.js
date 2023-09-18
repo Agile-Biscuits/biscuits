@@ -1,5 +1,3 @@
-import Budget from '../src/models/Budget';
-
 const budgets = [
   {
     id: 1,

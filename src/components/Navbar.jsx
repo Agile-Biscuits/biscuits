@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import styled from '@emotion/styled';
-import { PiPencilSimpleBold, PiX, PiPlusBold } from 'react-icons/pi';
+import { PiPencilSimpleBold, PiX, PiPlusBold, PiVault } from 'react-icons/pi';
 import { Link, useLocation } from 'react-router-dom';
 import { EditContext } from '../context/EditContext';
 import Budget from '../models/Budget';
@@ -28,12 +28,23 @@ const Logo = styled.img`
   text-align: center;
 `;
 
+const IconsContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const EditIcon = styled(PiPencilSimpleBold)`
   cursor: pointer;
+  margin-right: 10px;
 `;
 
 const XIcon = styled(PiX)`
   cursor: pointer;
+`;
+
+const VaultIcon = styled(PiVault)`
+  cursor: pointer;
+  margin-right: 10px;
 `;
 
 const LeftContainer = styled.div`
@@ -104,6 +115,9 @@ export default function Navbar() {
     if (isTransactionsPage) {
       return 'Transactions';
     }
+    if (location.pathname === '/vault') {
+      return 'Vault';
+    }
     return 'Wallet';
   };
 
@@ -127,17 +141,21 @@ export default function Navbar() {
         )}
       </LeftContainer>
 
-      {!isEditing && (
-        <Link to="/envelopes" data-testid="navbar-edit-icon-link">
-          <EditIcon onClick={handlePencilIconClick} data-testid="navbar-edit-icon" />
+      <IconsContainer>
+        {!isEditing && (
+          <Link to="/envelopes" data-testid="navbar-edit-icon-link">
+            <EditIcon onClick={handlePencilIconClick} data-testid="navbar-edit-icon" />
+          </Link>
+        )}
+        <Link to="/vault" data-testid="navbar-vault-icon-link">
+          <VaultIcon data-testid="navbar-vault-icon" />
         </Link>
-      )}
-
-      {location.pathname === '/envelopes' && (
-        <Link to="/envelopes/edit">
-          <PiPlusBold onClick={handlePlusIconClick} />
-        </Link>
-      )}
+        {location.pathname === '/envelopes' && (
+          <Link to="/envelopes/edit">
+            <PiPlusBold onClick={handlePlusIconClick} />
+          </Link>
+        )}
+      </IconsContainer>
     </NavbarContainer>
   );
 }

@@ -7,6 +7,7 @@ import EnvelopePage from './pages/EnvelopePage';
 import AddEnvelopePage from './pages/AddEnvelopePage';
 import EditEnvelopePage from './pages/EditEnvelopePage';
 import TransactionPage from './pages/TransactionsPage';
+import VaultPage from './pages/VaultPage';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             element: <TransactionPage />,
           },
         ],
+      },
+      {
+        path: '/vault',
+        element: <VaultPage />,
       },
     ],
   },

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { PiPencilSimpleBold } from 'react-icons/pi';
 import styled from '@emotion/styled';
-import { EditContext } from '../context/EditContext';
 import { Link } from 'react-router-dom';
+import { EditContext } from '../context/EditContext';
 
 const COLORS = {
   excessive: 'cornflowerblue',
