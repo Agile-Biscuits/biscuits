@@ -5,60 +5,72 @@ exports[`Budgets matches snapshot 1`] = `
   <div
     class="css-1zblq7-Container eo0izpr0"
   >
-    <div
-      class="css-8w9okj-Container e1dz7f3g7"
-      data-testid="budget"
+    <a
+      class="css-1srxvew-StyledLink e1dz7f3g0"
+      href="/transactions/Test 2"
+      style="text-decoration: none;"
     >
       <div
-        class="css-cwb82f-Fill e1dz7f3g0"
-        value="50"
-      />
-      <div
-        class="css-15xwpwu-InfoContainer e1dz7f3g6"
+        class="css-2hu90h-Container e1dz7f3g8"
+        data-testid="budget"
       >
         <div
-          class="css-njdknn-NameContainer e1dz7f3g2"
+          class="css-cwb82f-Fill e1dz7f3g1"
+          value="50"
+        />
+        <div
+          class="css-15xwpwu-InfoContainer e1dz7f3g7"
         >
           <div
-            class="css-kh8k75-Name e1dz7f3g5"
+            class="css-njdknn-NameContainer e1dz7f3g3"
           >
-            TEST 2
+            <div
+              class="css-kh8k75-Name e1dz7f3g6"
+            >
+              TEST 2
+            </div>
+          </div>
+          <div
+            class="css-7nkki1-Value e1dz7f3g2"
+          >
+            £50.00
           </div>
         </div>
-        <div
-          class="css-7nkki1-Value e1dz7f3g1"
-        >
-          £50.00
-        </div>
       </div>
-    </div>
-    <div
-      class="css-8w9okj-Container e1dz7f3g7"
-      data-testid="budget"
+    </a>
+    <a
+      class="css-1srxvew-StyledLink e1dz7f3g0"
+      href="/transactions/Test 1"
+      style="text-decoration: none;"
     >
       <div
-        class="css-1qtj0e0-Fill e1dz7f3g0"
-        value="50"
-      />
-      <div
-        class="css-15xwpwu-InfoContainer e1dz7f3g6"
+        class="css-2hu90h-Container e1dz7f3g8"
+        data-testid="budget"
       >
         <div
-          class="css-njdknn-NameContainer e1dz7f3g2"
+          class="css-1qtj0e0-Fill e1dz7f3g1"
+          value="50"
+        />
+        <div
+          class="css-15xwpwu-InfoContainer e1dz7f3g7"
         >
           <div
-            class="css-kh8k75-Name e1dz7f3g5"
+            class="css-njdknn-NameContainer e1dz7f3g3"
           >
-            TEST 1
+            <div
+              class="css-kh8k75-Name e1dz7f3g6"
+            >
+              TEST 1
+            </div>
+          </div>
+          <div
+            class="css-7nkki1-Value e1dz7f3g2"
+          >
+            £50.00
           </div>
         </div>
-        <div
-          class="css-7nkki1-Value e1dz7f3g1"
-        >
-          £50.00
-        </div>
       </div>
-    </div>
+    </a>
   </div>
 </DocumentFragment>
 `;
